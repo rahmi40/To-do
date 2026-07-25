@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #153677, #4e085f);
+  padding: 10px;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.todo-app h2 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #153677;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #1a4085;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+ul li:hover {
+  background: #f8f8f8;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8px;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(images/checked.png);
+}
+
+.todo-text {
+  flex: 1;
+  word-break: break-word;
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.edit-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.edit-btn:hover {
+  background: #e8e8e8;
+}
+
+.delete-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 22px;
+  color: #555;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.3s;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 30px 20px;
+  cursor: default;
+  list-style: none;
+  border-bottom: none;
+  justify-content: center !important;
+}
+
+.empty-message:hover {
+  background: transparent;
+}
+
+@media (max-width: 540px) {
+  .todo-app {
+    padding: 30px 20px 50px;
+    margin: 50px auto 20px;
+  }
+
+  button {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 15px;
+    padding: 10px 8px 10px 45px;
+  }
+
+  ul li::before {
+    height: 22px;
+    width: 22px;
+    left: 8px;
+  }
+
+  .edit-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .delete-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.empty-message::before {
+  display: none !important;
+}
+
+.empty-message {
+  padding-left: 20px !important;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 30px 20px;
+  cursor: default;
+  list-style: none;
+  border-bottom: none;
+  justify-content: center !important;
+}
+ul li.dragging {
+  opacity: 0.4;
+  background: #e0e0e0;
+  transform: scale(0.98);
+}
+
+ul li.drag-over {
+  border-top: 3px solid #153677 !important;
+  background: #f0f4ff;
+}
+
+ul li.dragging {
+  cursor: grabbing;
+}
+
+ul li .edit-btn,
+ul li .delete-btn {
+  cursor: pointer;
+}
